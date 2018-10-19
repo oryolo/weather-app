@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "moment": "^2.22.2",
+    "npm": "^6.4.1",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-redux": "^5.0.7",
@@ -13,16 +14,19 @@
     "react-search-input": "^0.11.3",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
+    "serve": "^10.0.2",
     "weather-icons-react": "^1.2.0"
   },
   "scripts": {
+    "dev": "react-scripts start",
     "build:css": "postcss src/styles/index.css -o src/index.css",
     "watch:css": "postcss src/styles/index.css -o src/index.css -w",
     "start-cra": "react-scripts start",
     "start": "npm-run-all -p watch:css start-cra",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm-run-all run build"
   },
   "devDependencies": {
     "autoprefixer": "^9.1.5",
