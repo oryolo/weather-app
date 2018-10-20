@@ -28,7 +28,7 @@ class App extends Component {
 
 
   loadCity = () => {
-    return axios.get("http://localhost:3001/cities/5406990.json")
+    return axios.get("/cities/5406990.json")
       .then(response => {
         globalStore.dispatch({
           type: FETCH_CITY_DATA,
