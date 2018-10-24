@@ -54,7 +54,7 @@ class HourlyView extends Component {
             return '';
         }
         return (
-            <ul className="flex list-reset items-strech bg-grey-lighter h-48 overflow-x-scroll">
+            <ul className="flex list-reset items-strech bg-blue-lighter h-48 overflow-x-scroll">
                 {this.renderHourlyNext48(data)}
             </ul>
         );

@@ -20,19 +20,26 @@ class WeekView extends Component {
 
     renderDays = (days) => {
         return days.map((item, index) => {
-            let weekDay = moment(item.time * 1000).format('ddd [,] MMM DD');
-            
+            let weekDay = moment(item.time * 1000).format('ddd[,] MMM DD');
+
             let tabClass = classNames({
-                "flex-1 w-1/4 text-grey-darker text-center bg-grey-lighter p-4 mt-4 hover:bg-blue-lighter": true,
-                "pt-2 pr-12 border-blue-light border-t-4 border-r-4 border-l-4 rounded-t": this.props.selectedDay === index,
+                "flex-1 w-1/4 text-grey-darker text-center p-4  bg-white align-middle": true,
+                "pt-2 pr-12  border-r-2 rounded-t bg-blue-lighter": this.props.selectedDay === index,
                 "pr-1 border-r-2 border-grey-light": this.props.selectedDay !== index,
+                
+            });
+
+            let uvIndexClass = classNames({
+                "mt-8": true,
+                "text-green": item.uvIndex <= 5,
+                "text-red": item.uvIndex > 5
             });
 
             return <li
                 key={index}
                 className={tabClass}
                 onClick={() => this.handleDayIndex(index)} >
-                <h4 className="">{index === 0 ? 'Today' : weekDay}</h4>
+                <h4 className="my-4">{index === 0 ? 'Today' : weekDay}</h4>
                 <div className="flex mx-1">
                     <div className="w-1/2">
                         <div id="icon">{iconTypes[item.icon]}</div>
@@ -42,6 +49,7 @@ class WeekView extends Component {
                         <div>{toCelsius(item.temperatureMax, this.props.tempInCelsius)} </div>
                     </div>
                 </div>
+                <div id="uvIndex" className={uvIndexClass}>UVIndex: {item.uvIndex}</div>
             </li>
         });
     }
@@ -52,10 +60,10 @@ class WeekView extends Component {
         if (data === undefined) {
             return '';
         }
-        
+
         return (
             <React.Fragment>
-                <ul className="flex list-reset h-32">{this.renderDays(data)}</ul>
+                <ul className="flex list-reset h-48">{this.renderDays(data)}</ul>
             </React.Fragment>
 
         );

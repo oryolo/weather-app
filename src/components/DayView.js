@@ -31,20 +31,19 @@ class DayView extends Component {
         }, {});
 
         return (
-            <div className="inline-flex">
-                <div className="bg-white w-64 border-grey-light border-2 text-base mx-2">
-                    <div className="flex mb-2">
-                        <div className="w-1/2 mx-4 my-4">{iconTypes[icon]}</div>
-                        <div className="w-1/2 my-4 text-lg">
-                            <div>High {toCelsius(data.apparentTemperatureHigh, this.props.tempInCelsius)}</div>
-                            <div>Low {toCelsius(data.apparentTemperatureLow, this.props.tempInCelsius)}</div>
-                        </div>
-                    </div>
-                    <div>Precipitation of {data.precipType} is {Math.floor(data.precipProbability * 100) + '%'}</div>
-                    <div>{this.setPrecipIntensity(data.precipIntensityMax, data.precipType)} around {moment(data.precipIntensityMaxTime).format('LT')}</div>
-                    <div>Humidity is {Math.floor(data.humidity * 100) + '%'}</div>
-                    <div>Windpeed is{Math.floor(data.windSpeed) + " mph"}</div>
+            <div className="flex w-full bg-blue-lighter">
+                <div className="flex-1 w-1/3 mx-4 my-4 text-right">{iconTypes[icon]}</div>
+                <div className="flex-1 w-1/3 my-4 text-lg">
+                    <div>High {toCelsius(data.apparentTemperatureHigh, this.props.tempInCelsius)}</div>
+                    <div>Low {toCelsius(data.apparentTemperatureLow, this.props.tempInCelsius)}</div>
                 </div>
+                <div id="description" className="flex-1 w-1/3 mt-4">
+                    <div className="mb-2">Precipitation of {data.precipType} is {Math.floor(data.precipProbability * 100) + '%'}</div>
+                    <div className="mb-2">{this.setPrecipIntensity(data.precipIntensityMax, data.precipType)} around {moment(data.precipIntensityMaxTime).format('LT')}</div>
+                    <div className="mb-2">Humidity is {Math.floor(data.humidity * 100) + '%'}</div>
+                    <div className="mb-2">Windspeed is {Math.floor(data.windSpeed) + " mph"}</div>
+                </div>
+
             </div>
         )
     }

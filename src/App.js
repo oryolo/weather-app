@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import axios from 'axios';
 import Header from './components/Header';
-//import Footer from './components/Footer';
+import Footer from './components/Footer';
 import PageView from './components/PageView';
 import './index.css';
 //import Spinner from "../src/images/spin.webp";
@@ -52,6 +52,14 @@ class App extends Component {
     return ;
   }
 
+  getButton(tempInCelsius) {
+    let buttonProps = {
+      className: "bg-blue h-10 my-4 py-2 px-4 hover:bg-blue-dark text-white font-bold rounded",
+      onClick: this.handleTempScale
+    }
+    return tempInCelsius ? <button {...buttonProps}>&#8451;</button> : <button {...buttonProps}>&#8457;</button>
+  } 
+
   /* renderSpinner() {
     if (this.state.isLoading) {
       console.log('spinner')
@@ -67,20 +75,17 @@ class App extends Component {
       cityName: this.props.city.cityName || '',
       hourly: this.props.city.hourly || [],
     }
+
     return (
       <div >
         <Header>
           {/* {this.renderSpinner()} */}
-          <button
-            className="bg-blue h-10 my-2 py-2 px-4 hover:bg-blue-dark text-white font-bold rounded"
-            onClick={this.handleTempScale}>
-            C/F
-          </button>
+            {this.getButton(this.props.tempInCelsius)}
         </Header>
         <PageView
           {...cityProps}
           />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }

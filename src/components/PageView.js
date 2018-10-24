@@ -8,17 +8,24 @@ export default class PageView extends Component {
 
     render() {
         return (
-            <div className="mt-20">
-                <Location
-                    cityName={this.props.cityName}
-                    onClick={this.setCityName} />
-                <WeekView
-                    daily={this.props.daily}
-                />
-                <HourlyView hourly={this.props.hourly}
-                    daily={this.props.daily}/>
-                <DailyAddition daily={this.props.daily}/>
+            <div className="flex justify-center ">
+                <div className="w-3/4 my-24 h-screen">
+                    <Location
+                        cityName={this.props.cityName}
+                        onClick={this.setCityName} />
+                    <div className="border-2 rounded shadow-lg">
+                        <WeekView
+                            daily={this.props.daily} />
+                        <HourlyView
+                            hourly={this.props.hourly}
+                            daily={this.props.daily} />
+                        <DailyAddition 
+                            daily={this.props.daily} />
+                    </div>
+
+                </div>
             </div>
+
         )
     }
 }

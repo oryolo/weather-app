@@ -1,5 +1,5 @@
 import React from 'react';
-import { WiDaySunny, WiDayCloudy, WiRainMix, WiNightClear, WiSnow, WiSleet, WiWindy, WiFog, WiCloudy, WiNightCloudy, WiSunrise, WiSunset, WiHumidity } from 'weather-icons-react';
+import { WiDaySunny, WiDayCloudy, WiRainMix, WiNightClear, WiSnow, WiSleet, WiWindy, WiFog, WiCloudy, WiNightCloudy, WiSunrise, WiSunset, WiHumidity, WiMoonAltWaningCrescent4 } from 'weather-icons-react';
 
 let iconProps = {
     size: 48,
@@ -19,6 +19,7 @@ const iconTypes = {
     'fog': <WiFog {...iconProps} />,
     'cloudy': <WiCloudy {...iconProps} />,
     'humidity': <WiHumidity {...iconProps}/>,
+    'moon': <WiMoonAltWaningCrescent4 size="22" color='grey' />,
     //other
     'sunrise': <WiSunrise size="22" color='grey'/>,
     'sunset': <WiSunset size="22" color='grey'/>
