@@ -31,13 +31,15 @@ class DayView extends Component {
         }, {});
 
         return (
-            <div className="flex w-full bg-blue-lighter">
-                <div className="flex-1 w-1/3 mx-4 my-4 text-right">{iconTypes[icon]}</div>
-                <div className="flex-1 w-1/3 my-4 text-lg">
-                    <div>High {toCelsius(data.apparentTemperatureHigh, this.props.tempInCelsius)}</div>
-                    <div>Low {toCelsius(data.apparentTemperatureLow, this.props.tempInCelsius)}</div>
+            <div className="flex bg-blue-lighter my-4">
+                <div id="mainInfo" className="m-4">
+                    <div className="mx-4">{iconTypes[icon]}</div>
+                    <div className="inline-flex my-2">
+                        <div>High <div className=" mx-2 text-3xl">{toCelsius(data.apparentTemperatureHigh, this.props.tempInCelsius)}</div></div>
+                        <div>Low <div className="mx-2 text-3xl">{toCelsius(data.apparentTemperatureLow, this.props.tempInCelsius)}</div></div>
+                    </div>
                 </div>
-                <div id="description" className="flex-1 w-1/3 mt-4">
+                <div id="description" className="mt-4 ml-16">
                     <div className="mb-2">Precipitation of {data.precipType} is {Math.floor(data.precipProbability * 100) + '%'}</div>
                     <div className="mb-2">{this.setPrecipIntensity(data.precipIntensityMax, data.precipType)} around {moment(data.precipIntensityMaxTime).format('LT')}</div>
                     <div className="mb-2">Humidity is {Math.floor(data.humidity * 100) + '%'}</div>

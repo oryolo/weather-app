@@ -1,31 +1,15 @@
 import React, { Component } from 'react';
-
 import axios from 'axios';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import PageView from './components/PageView';
 import './index.css';
-//import Spinner from "../src/images/spin.webp";
 import { connect } from 'react-redux';
 import { FETCH_CITY_DATA, CHANGE_TEMP_SCALE } from './store/actions';
 import globalStore from './store/global_store';
-
-//const initialData = window.__INITIAL_STATE__;
+import Drawer from 'react-toolbox/lib/drawer';
 
 class App extends Component {
-
-  /* constructor(props) {
-    super(props);
-    this.state = {
-      selectedDay: 0,
-      city: {},
-      cityId: initialData.defaultCityId,
-      isLoading: false,
-      inCelsius: false
-    }
-    this.handleDayChange = this.handleDayChange.bind(this);
-  } */
-
 
   loadCity = () => {
     return axios.get("/cities/5406990.json")
@@ -49,7 +33,7 @@ class App extends Component {
     globalStore.dispatch({
       type: CHANGE_TEMP_SCALE,
     })
-    return ;
+    return;
   }
 
   getButton(tempInCelsius) {
@@ -58,16 +42,7 @@ class App extends Component {
       onClick: this.handleTempScale
     }
     return tempInCelsius ? <button {...buttonProps}>&#8451;</button> : <button {...buttonProps}>&#8457;</button>
-  } 
-
-  /* renderSpinner() {
-    if (this.state.isLoading) {
-      console.log('spinner')
-      return <img src={Spinner} alt="spinner" />;
-    }
-    return;
   }
- */
 
   render() {
     const cityProps = {
@@ -77,16 +52,14 @@ class App extends Component {
     }
 
     return (
-      <div >
+      <React.Fragment>
         <Header>
-          {/* {this.renderSpinner()} */}
-            {this.getButton(this.props.tempInCelsius)}
+          {this.getButton(this.props.tempInCelsius)}
         </Header>
         <PageView
-          {...cityProps}
-          />
+          {...cityProps} />
         <Footer />
-      </div>
+      </React.Fragment>
     );
   }
 }

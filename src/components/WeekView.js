@@ -23,14 +23,14 @@ class WeekView extends Component {
             let weekDay = moment(item.time * 1000).format('ddd[,] MMM DD');
 
             let tabClass = classNames({
-                "flex-1 w-1/4 text-grey-darker text-center p-4  bg-white align-middle": true,
-                "pt-2 pr-12  border-r-2 rounded-t bg-blue-lighter": this.props.selectedDay === index,
+                "flex-1 w-1/4 text-grey-darker text-center p-4 bg-white align-middle": true,
+                "pt-2 pr-2 border-r-2 rounded-t bg-blue-lighter": this.props.selectedDay === index,
                 "pr-1 border-r-2 border-grey-light": this.props.selectedDay !== index,
                 
             });
 
             let uvIndexClass = classNames({
-                "mt-8": true,
+                "mt-4": true,
                 "text-green": item.uvIndex <= 5,
                 "text-red": item.uvIndex > 5
             });
@@ -39,7 +39,7 @@ class WeekView extends Component {
                 key={index}
                 className={tabClass}
                 onClick={() => this.handleDayIndex(index)} >
-                <h4 className="my-4">{index === 0 ? 'Today' : weekDay}</h4>
+                <h4 className="my-4 mx-2 ">{index === 0 ? 'Today' : weekDay}</h4>
                 <div className="flex mx-1">
                     <div className="w-1/2">
                         <div id="icon">{iconTypes[item.icon]}</div>
