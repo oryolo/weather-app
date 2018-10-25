@@ -10,9 +10,7 @@ export default class PageView extends Component {
         return (
             <div className="flex justify-center ">
                 <div className="w-3/4 my-24 h-screen">
-                    <Location
-                        cityName={this.props.cityName}
-                        onClick={this.setCityName} />
+                    <Location cityName={this.props.cityName} />
                     <div className="border-2 rounded shadow-lg">
                         <WeekView
                             daily={this.props.daily} />
