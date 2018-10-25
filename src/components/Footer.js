@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
-import Drawer from 'react-toolbox/lib/drawer';
-
 
 
 class Footer extends Component {
-    state = {
-        active: false
-    };
-
-    handleToggle = () => {
-        this.setState({ active: !this.state.active });
-        console.log('drawer');
-    };
-
     render() {
         let info = ['About', 'Contact', 'Recources'];
         return (
@@ -27,7 +16,7 @@ class Footer extends Component {
                         </li>
                     })}
                 </ul>
-                
+
             </div>
         );
     }

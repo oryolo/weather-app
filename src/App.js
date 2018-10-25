@@ -29,21 +29,6 @@ class App extends Component {
     this.loadCity();
   }
 
-  handleTempScale = () => {
-    globalStore.dispatch({
-      type: CHANGE_TEMP_SCALE,
-    })
-    return;
-  }
-
-  getButton(tempInCelsius) {
-    let buttonProps = {
-      className: "bg-blue h-10 my-4 py-2 px-4 hover:bg-blue-dark text-white font-bold rounded",
-      onClick: this.handleTempScale
-    }
-    return tempInCelsius ? <button {...buttonProps}>&#8451;</button> : <button {...buttonProps}>&#8457;</button>
-  }
-
   render() {
     const cityProps = {
       daily: this.props.city.daily || [],
@@ -54,7 +39,6 @@ class App extends Component {
     return (
       <React.Fragment>
         <Header>
-          {this.getButton(this.props.tempInCelsius)}
         </Header>
         <PageView
           {...cityProps} />
