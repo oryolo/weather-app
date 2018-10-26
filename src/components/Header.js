@@ -15,7 +15,7 @@ class Header extends Component {
 
     getButton(tempInCelsius) {
         let buttonProps = {
-            className: "bg-blue h-10 w-10 my-2 mx-16 mhover:bg-blue-dark text-white font-bold rounded",
+            className: "bg-blue h-10 w-10 align-middle my-4 mx-4 mhover:bg-blue-dark text-white font-bold rounded",
             onClick: this.handleTempScale
         }
         return tempInCelsius ? <button {...buttonProps}>&#8451;</button> : <button {...buttonProps}>&#8457;</button>
@@ -23,10 +23,10 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="flex justify-between py-2 px-32 bg-blue-lighter fixed pin-t pin-x z-100 h-auto shadow">
+            <div className="flex justify-between px-32 bg-blue-lighter fixed pin-t pin-x z-100 h-auto shadow">
                 <div id="logo" className="mx-12">
                     <span>
-                        <img src="https://goo.gl/VzmXUe" alt="logo" className="w-10 h-10 rounded-full" />
+                        <img src="https://goo.gl/VzmXUe" alt="logo" className="w-12 h-12 my-4 rounded-full" />
                     </span>
                 </div>
                 {this.getButton(this.props.tempInCelsius)}

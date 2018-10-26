@@ -5,9 +5,8 @@ import Footer from './components/Footer';
 import PageView from './components/PageView';
 import './index.css';
 import { connect } from 'react-redux';
-import { FETCH_CITY_DATA, CHANGE_TEMP_SCALE } from './store/actions';
+import { FETCH_CITY_DATA } from './store/actions';
 import globalStore from './store/global_store';
-import Drawer from 'react-toolbox/lib/drawer';
 
 class App extends Component {
 

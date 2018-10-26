@@ -6,7 +6,7 @@ import globalStore from '../store/global_store';
 import { CHANGE_SELECTED_DAY } from '../store/actions';
 import { iconTypes } from '../utils/iconTypes';
 
-var classNames = require('classnames');
+import classNames from 'classnames';
 
 
 class WeekView extends Component {
