@@ -12,7 +12,7 @@ class Drawer extends Component {
     }
     render() {
         const textStyle = classNames({
-            "font-serif text-left ml-2 my-2 text-lg": true
+            "text-left ml-2 my-2 text-lg": true
         })
         return (
             <div className="h-full w-64 fixed z-100 pin-t pin-l bg-grey-lighter shadow-md">

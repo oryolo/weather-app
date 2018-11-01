@@ -15,7 +15,7 @@ class Footer extends Component {
 
     render() {
         const liStyle = classNames({
-            "flex-1 mx-2 my-2 text-grey hover:text-white": true
+            "flex-1 mx-2 my-2 hover:text-white": true
         })
         return (
             <div className="fixed pin-b pin-l w-full h-8 text-center bg-blue-lighter">

@@ -15,7 +15,7 @@ class Header extends Component {
 
     getButton(tempInCelsius) {
         let buttonProps = {
-            className: "bg-blue h-10 w-10 align-middle my-4 mx-4 mhover:bg-blue-dark text-white font-bold rounded",
+            className: "bg-blue h-10 w-10 align-middle mhover:bg-blue-dark text-white font-bold rounded",
             onClick: this.handleTempScale
         }
         return tempInCelsius ? <button {...buttonProps}>&#8451;</button> : <button {...buttonProps}>&#8457;</button>
@@ -23,14 +23,17 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="flex justify-between px-32 bg-blue-lighter fixed pin-t pin-x z-100 h-auto shadow">
-                <div id="logo" className="mx-12">
-                    <span>
-                        <img src="https://goo.gl/VzmXUe" alt="logo" className="w-12 h-12 my-4 rounded-full" />
-                    </span>
-                </div>
-                {this.getButton(this.props.tempInCelsius)}
-            </div>
+            <ul className="list-reset flex bg-blue-lighter fixed pt-4 pl-16 pin-t pin-x z-100 h-auto shadow">
+                <li id="logo" className="mx-24">
+                    <div className="flex items-center text-white mr-6">
+                        <img src="http://www.czewa24.pl/images/12230/fa617a44d10feca59c61aad87fb3e41a.png" alt="logo" className="fill-current h-8 w-8 mr-2" />
+                        <span className="font-semibold text-xl tracking-tight">Weather</span>
+                    </div>
+                </li>
+                <li className="block mb-4 mr-3">
+                    {this.getButton(this.props.tempInCelsius)}
+                </li>
+            </ul>
         );
     }
 }
