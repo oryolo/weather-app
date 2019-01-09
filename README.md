@@ -1,5 +1,5 @@
 # Weather App
 
-The Weather App is a toy project for educational purposes.  
+This Weather App renders json data from Darksky API. 
 
 ## Endpoints
